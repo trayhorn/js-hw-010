@@ -8,12 +8,12 @@ const datePicker = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('.js-start-button');
 startButton.setAttribute('disabled', true);
 
-const data = {
-  days: document.querySelector('[data-days]'),
-  hours: document.querySelector('[data-hours]'),
-  minutes: document.querySelector('[data-minutes]'),
-  seconds: document.querySelector('[data-seconds]')
-};
+const data = [
+  document.querySelector('[data-days]'),
+  document.querySelector('[data-hours]'),
+  document.querySelector('[data-minutes]'),
+  document.querySelector('[data-seconds]')
+];
 
 let userSelectedDate;
 
@@ -32,7 +32,6 @@ const options = {
     }
     else {
       userSelectedDate = selectedDates[0].getTime();
-
       startButton.removeAttribute('disabled');
     }
   },
@@ -43,25 +42,22 @@ flatpickr(datePicker, options);
 startButton.addEventListener('click', handleTimerStart);
 
 function handleTimerStart() {
-  const timeRemaining = Object.values(
-    convertMs(userSelectedDate - Date.now())
-  );
-
-  data.days.textContent = timeRemaining[0];
-  data.hours.textContent = timeRemaining[1];
-  data.minutes.textContent = timeRemaining[2];
-  data.seconds.textContent = timeRemaining[3];
-
-  
-  setInterval(() => {
+  let timerId = setInterval(() => {
     const timeRemaining = Object.values(
       convertMs(userSelectedDate - Date.now())
     );
 
-    data.days.textContent = timeRemaining[0];
-    data.hours.textContent = timeRemaining[1];
-    data.minutes.textContent = timeRemaining[2];
-    data.seconds.textContent = timeRemaining[3];
+    const allZero = timeRemaining.every(el => Number(el) < 0);
+
+    if (allZero) {
+      clearInterval(timerId);
+      startButton.removeAttribute('disabled');
+      return;
+    }
+
+    for (let i = 0; i < data.length; i++) {
+      data[i].textContent = timeRemaining[i];
+    }
   }, 1000)
 
   startButton.setAttribute('disabled', true);

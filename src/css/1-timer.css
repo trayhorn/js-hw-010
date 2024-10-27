@@ -1,0 +1,63 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.start-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+  background-color: #4E75FF;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+}
+.start-button:hover {
+  background-color: #6C8CFF;
+}
+.start-button:disabled {
+  background-color: #CFCFCF;
+  color: #989898;
+}
+
+.datetime-picker {
+  padding: 8px 16px;
+  margin-right: 8px;
+  margin-bottom: 32px;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Montserrat", sans-serif;
+  color: #2E2F42;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  outline: none;
+
+}
+.datetime-picker:hover {
+  border-color: #000000;
+}
+.datetime-picker:active,
+.datetime-picker:focus {
+  border-color: #4E75FF;
+}
+
+.timer {
+  display: flex;
+  gap:24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field .value {
+  color: #2E2F42;
+  font-size: 40px;
+  line-height: 48px;
+}
