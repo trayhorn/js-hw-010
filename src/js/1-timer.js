@@ -6,6 +6,7 @@ import "izitoast/dist/css/iziToast.min.css";
 
 const datePicker = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('.js-start-button');
+const stopButton = document.querySelector('.js-stop-button');
 startButton.setAttribute('disabled', true);
 
 const data = [
@@ -40,27 +41,43 @@ const options = {
 flatpickr(datePicker, options);
 
 startButton.addEventListener('click', handleTimerStart);
+stopButton.addEventListener('click', handleTimerStop);
+
+let timerId;
 
 function handleTimerStart() {
-  let timerId = setInterval(() => {
-    const timeRemaining = Object.values(
-      convertMs(userSelectedDate - Date.now())
-    );
+  stopButton.classList.toggle('is-hidden');
 
-    const allZero = timeRemaining.every(el => Number(el) < 0);
 
-    if (allZero) {
-      clearInterval(timerId);
-      startButton.removeAttribute('disabled');
-      return;
-    }
+   timerId = setInterval(() => {
+     const timeRemaining = Object.values(
+       convertMs(userSelectedDate - Date.now())
+     );
 
-    for (let i = 0; i < data.length; i++) {
-      data[i].textContent = timeRemaining[i];
-    }
-  }, 1000)
+     const allZero = timeRemaining.every(el => Number(el) < 0);
+
+     if (allZero) {
+       clearInterval(timerId);
+       startButton.removeAttribute('disabled');
+       return;
+     }
+
+     for (let i = 0; i < data.length; i++) {
+       data[i].textContent = timeRemaining[i];
+     }
+   }, 1000);
 
   startButton.setAttribute('disabled', true);
+}
+
+function handleTimerStop() {
+  clearInterval(timerId);
+
+  for (let i = 0; i < data.length; i++) {
+    data[i].textContent = '00';
+  }
+
+  stopButton.classList.toggle('is-hidden');
 }
 
 

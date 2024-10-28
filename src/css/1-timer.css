@@ -1,39 +1,31 @@
+html {
+  height:100%;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  margin: 0;
 }
 
-.start-button {
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 16px;
-  line-height: 24px;
-  border: none;
-  cursor: pointer;
-  background-color: #4E75FF;
-  color: #FFFFFF;
-  font-family: "Montserrat", sans-serif;
-}
-.start-button:hover {
-  background-color: #6C8CFF;
-}
-.start-button:disabled {
-  background-color: #CFCFCF;
-  color: #989898;
+.date-picker_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 32px;
 }
 
 .datetime-picker {
-  padding: 8px 16px;
-  margin-right: 8px;
-  margin-bottom: 32px;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 24px;
-  font-family: "Montserrat", sans-serif;
-  color: #2E2F42;
+  padding: 8px 16px;
   border: 1px solid #808080;
   border-radius: 4px;
+  color: #2E2F42;
   outline: none;
 
 }
@@ -45,8 +37,28 @@ body {
   border-color: #4E75FF;
 }
 
+.button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+  background-color: #4E75FF;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+}
+.button:hover {
+  background-color: #6C8CFF;
+}
+.button:disabled {
+  background-color: #CFCFCF;
+  color: #989898;
+}
+
 .timer {
   display: flex;
+  justify-content: center;
   gap:24px;
 }
 
@@ -60,4 +72,59 @@ body {
   color: #2E2F42;
   font-size: 40px;
   line-height: 48px;
+}
+
+.is-hidden {
+  display: none;
+}
+
+
+
+/* Background animation */
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+.content {
+  background-color:rgba(255,255,255,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin;
+  position:fixed;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+h1 {
+  font-family:monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
 }

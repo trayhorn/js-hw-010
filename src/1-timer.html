@@ -10,27 +10,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <input type="text" id="datetime-picker" class="datetime-picker" />
-  <button class="js-start-button start-button" type="button" data-start>
-    Start
-  </button>
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+  <div class="content">
+    <div class="date-picker_container">
+      <input type="text" id="datetime-picker" class="datetime-picker" />
+      <button class="js-start-button button" type="button" data-start>
+        Start
+      </button>
+      <button class="js-stop-button button is-hidden" type="button" data-start>
+        Stop
+      </button>
+    </div>
 
-  <div class="timer">
-    <div class="field">
-      <span class="value" data-days>00</span>
-      <span class="label">Days</span>
-    </div>
-    <div class="field">
-      <span class="value" data-hours>00</span>
-      <span class="label">Hours</span>
-    </div>
-    <div class="field">
-      <span class="value" data-minutes>00</span>
-      <span class="label">Minutes</span>
-    </div>
-    <div class="field">
-      <span class="value" data-seconds>00</span>
-      <span class="label">Seconds</span>
+    <div class="timer">
+      <div class="field">
+        <span class="value" data-days>00</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="field">
+        <span class="value" data-hours>00</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="field">
+        <span class="value" data-minutes>00</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="field">
+        <span class="value" data-seconds>00</span>
+        <span class="label">Seconds</span>
+      </div>
     </div>
   </div>
 
