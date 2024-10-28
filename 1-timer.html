@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/js-hw-010/1-timer.js"></script>
+  <link rel="modulepreload" crossorigin href="/js-hw-010/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="/js-hw-010/assets/vendor-BbbuE1sJ.js">
+  <link rel="stylesheet" crossorigin href="/js-hw-010/assets/vendor-CZjNVMTf.css">
+  <link rel="stylesheet" crossorigin href="/js-hw-010/assets/1-timer-Cx83fEaG.css">
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+  <div class="content">
+    <div class="date-picker_container">
+      <input type="text" id="datetime-picker" class="datetime-picker" />
+      <button class="js-start-button button" type="button" data-start>
+        Start
+      </button>
+      <button class="js-stop-button button is-hidden" type="button" data-start>
+        Stop
+      </button>
+    </div>
+
+    <div class="timer">
+      <div class="field">
+        <span class="value" data-days>00</span>
+        <span class="label">Days</span>
+      </div>
+      <div class="field">
+        <span class="value" data-hours>00</span>
+        <span class="label">Hours</span>
+      </div>
+      <div class="field">
+        <span class="value" data-minutes>00</span>
+        <span class="label">Minutes</span>
+      </div>
+      <div class="field">
+        <span class="value" data-seconds>00</span>
+        <span class="label">Seconds</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
