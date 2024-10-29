@@ -2,12 +2,11 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.js-form');
-const submit = document.querySelector('.js-button');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  const state = form.elements.state.value;
-  const delay = Number(form.elements.delay.value);
+  const state = e.currentTarget.elements.state.value;
+  const delay = Number(e.currentTarget.elements.delay.value);
 
   createPromise(state, delay)
     .then(value => {
